@@ -125,7 +125,8 @@ function post() {
 		exit;
 	}
 
-	$sql = ("insert into questions (title,description,created,updated,link,userid,slug,linkcache,votes,accepted,answers,kb) values ('".escape($title)."','".escape($description)."',NOW(),NOW(),'".escape($link)."','".escape($_SESSION['userid'])."','".escape($slug)."','".escape($cache)."','0','0','0','".escape($kb)."')");
+	//$sql = ("insert into questions (title,description,created,updated,link,userid,slug,linkcache,votes,accepted,answers,kb) values ('".escape($title)."','".escape($description)."',NOW(),NOW(),'".escape($link)."','".escape($_SESSION['userid'])."','".escape($slug)."','".escape($cache)."','0','0','0','".escape($kb)."')");
+    $sql = ("insert into questions (title,description,created,updated,link,userid,slug,linkcache,votes,accepted,answers,kb) values ('".$title."','".$description."',NOW(),NOW(),'".$link."','".$_SESSION['userid']."','".$slug."','".$cache."','0','0','0','".$kb."')");
 	$query = mysql_query($sql);
 
 	$questionid = mysql_insert_id();
